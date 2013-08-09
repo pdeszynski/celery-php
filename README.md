@@ -62,6 +62,8 @@ phpunit
 
 Be sure thought to still run ```make init``` because it will install necessary **Mockery**.
 
+Additionally you will need a **[phpredis](https://github.com/nicolasff/phpredis)** extension installed and added to PHP. You can find phpredis in **vendor** directory if you'll run ```make composer / make init```.
+
 ### Developer instructions
 
 To add new Celery backend you should create **two** classes of name:
