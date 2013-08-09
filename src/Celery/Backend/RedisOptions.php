@@ -144,8 +144,8 @@ class RedisOptions
         $this->options['host'] = $host;
         $this->options['port'] = $port;
         $this->options['timeout'] = $timeout;
+        $dbNum = isset($this->options['dbNum']) ? $this->options['dbNum'] : $this->getDbNum();
         $this->connection->connect($host, $port, $timeout);
-        $dbNum = $this->getDbNum();
         if ($this->getAuth() !== null) {
             //reauth connection after new connect
             $this->setAuth($this->getAuth());
