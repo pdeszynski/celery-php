@@ -96,7 +96,7 @@ class Redis extends BackendAbstract
         try {
             return $this->getOptions()->getConnection()->lPush($queueName, $task);
         } catch (\Exception $e) {
-            throw new Exception\ConnectionException("An error occured while pushing task into backend", $e);
+            throw new Exception\ConnectionException("An error occured while pushing task into backend", 1, $e);
         }
     }
     
@@ -113,7 +113,7 @@ class Redis extends BackendAbstract
         try {
             return $this->getOptions()->getConnection()->publish($queueName, $task);
         } catch (\Exception $e) {
-            throw new Exception\ConnectionException("An error occured while pushing task into backend", $e);
+            throw new Exception\ConnectionException("An error occured while pushing task into backend", 1, $e);
         }
     }
     
