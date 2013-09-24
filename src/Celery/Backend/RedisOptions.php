@@ -150,7 +150,7 @@ class RedisOptions
             //reauth connection after new connect
             $this->setAuth($this->getAuth());
         }
-        if ($dbNum !== false && $dbNum !== null) {
+        if ($dbNum != 0) {
             $this->setDbNum($dbNum);
         }
     }
