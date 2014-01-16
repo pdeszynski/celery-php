@@ -40,7 +40,7 @@ class RedisOptionsTest extends \PHPUnit_Framework_TestCase
         $mock->shouldReceive('getAuth')->atLeast()->once();
         $mock->shouldReceive('getHost')->atLeast()->once()->andReturn('new-host');
         $mock->shouldReceive('getPort')->atLeast()->once()->andReturn(1234);
-        $mock->shouldReceive('getDBNum')->atLeast()->once()->andReturn(0);
+        $mock->shouldReceive('getDBNum')->atLeast()->once()->andReturn(1);
         $mock->shouldReceive('connect')->once();
         $mock->shouldReceive('select')->atLeast()->once();
         $redisOptions = new Backend\RedisOptions(array('host' => 'localhost', 'port' => 123));

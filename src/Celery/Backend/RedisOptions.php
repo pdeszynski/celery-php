@@ -6,7 +6,7 @@ use Celery;
 
 /**
  * Class responsible for setting up redis object
- * 
+ *
  * @package Celery
  */
 class RedisOptions
@@ -51,6 +51,7 @@ class RedisOptions
                 if (isset($this->options['auth'])) {
                     $this->setAuth($this->options['auth']);
                 }
+
                 if (isset($this->options['dbNum'])) {
                     $this->setDbNum($this->options['dbNum']);
                 }
@@ -64,7 +65,7 @@ class RedisOptions
      * Set backend connection
      *
      * @param \Redis $connection PhpRedis connection
-     * 
+     *
      * @return RedisOptions Fluent interface
      */
     public function setConnection(\Redis $connection)
@@ -82,7 +83,7 @@ class RedisOptions
      * Set auth for Redis
      *
      * @param string $auth Redis password
-     * 
+     *
      * @return RedisOptions
      */
     public function setAuth($auth)
@@ -107,7 +108,7 @@ class RedisOptions
      * Set db number
      *
      * @param int $dbNum Db number for current connection
-     * 
+     *
      * @return RedisOptions
      */
     public function setDbNum($dbNum)

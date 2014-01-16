@@ -4,13 +4,13 @@ namespace Celery;
 
 class Celery implements CeleryInterface
 {
-    
+
     protected $mapExchangeToMethod = array(
         'direct' => 'pushDirectTask',
         'fanout' => 'pushFanoutTask',
         'topic'  => 'pushTopicTask',
     );
-    
+
     /**
      * Default task template used by celery class.
      *
@@ -23,7 +23,6 @@ class Celery implements CeleryInterface
             ),
             'id' => null,
         ),
-        'headers' => array(),
         'content-type' => 'application/json',
         'properties' => array(
             'body_encoding' => 'base64',
@@ -70,7 +69,7 @@ class Celery implements CeleryInterface
      * Changes task template if it's necessary.
      *
      * @param array $taskTemplate Celery task template.
-     * 
+     *
      * @return Celery Fluent interface
      */
     public function setTaskTemplate(array $taskTemplate)
@@ -94,7 +93,7 @@ class Celery implements CeleryInterface
      * Sets backend for Celery task
      *
      * @param Backend\BackendInterface $backend Backend
-     * 
+     *
      * @return Celery Fluent interface
      */
     public function setBackend(Backend\BackendInterface $backend)
@@ -123,7 +122,7 @@ class Celery implements CeleryInterface
      * @param string $exchangeType Exchange type, default is direct
      * @param array  $args         Arguments for celery task required to process
      * @param int    $priority     Priority for a task
-     * 
+     *
      * @return boolean True if task was pushed into backend
      */
     public function pushTask(
@@ -142,9 +141,9 @@ class Celery implements CeleryInterface
         $task['body'] = base64_encode(json_encode($task['body']));
         $task['properties']['delivery_tag'] = sha1(json_encode($task['body']));
         $task['properties']['delivery_info']['exchange'] = $exchangeName;
-        
+
         $method = $this->mapExchangeToMethod[$exchangeType];
-        
+
         return $this->getBackend()->{$method}($queueName, $task);
     }
 }

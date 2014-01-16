@@ -33,7 +33,6 @@ class CeleryTest extends \PHPUnit_Framework_TestCase
 
         $expected = array(
             'body' => "eyJ0YXNrIjoidGFzayIsImt3YXJncyI6WzEsMiwzXSwiaWQiOiJkZWM3NDMzODgwOGY0M2I4Y2NjMWMwMGI3YWNjYThkMTQxNTcyODY5In0=",
-            'headers' => array(),
             'content-type' => "application/json",
             'properties' => array(
                 'body_encoding' => "base64",
