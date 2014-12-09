@@ -1,5 +1,5 @@
 {
-    "name": "Celery",
+    "name": "piteer1/celery",
     "minimum-stability": "dev",
     "prefer-stable": true,
     "config": {
