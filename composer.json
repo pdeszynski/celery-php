@@ -1,5 +1,5 @@
 {
-    "name": "piteer1/celery",
+    "name": "piteer1/celery-php",
     "minimum-stability": "dev",
     "prefer-stable": true,
     "config": {
